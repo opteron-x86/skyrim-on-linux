@@ -1,0 +1,112 @@
+Quick Notes
+
+Just stuff to remember, fixes, problems, updates...
+
+Designed for Skyrim SE/AE Steam version 1.6.640+, if on version 1.6.640 use BEES
+
+Steam compatibility:
+Use Proton 9
+
+Performance optimization:
+https://linux-gaming.kwindu.eu/index.php?title=Improving_performance
+Gamemode
+https://github.com/FeralInteractive/gamemode
+Steam launch options:
+gamemoderun %command%
+CoreCtrl
+Set up performance profile
+
+Mod Organizer 2
+https://github.com/rockerbacon/modorganizer2-linux-installer
+follow the install instructions
+
+Protontricks
+https://github.com/Matoking/protontricks
+
+ISSUE #304 - IMPORTANT AS OF 20240917
+Install the beta package:
+Arch AUR
+
+Install python-vdf-solstice from AUR if you haven't already using the AUR helper of your choice (eg. with Paru the command is paru -S python-vdf-solstice). If pacman prompts you to delete existing python-vdf package, allow it to do so.
+
+Download the PKGBUILD file from protontricks-git either manually or using the AUR helper of your choice (eg. with Paru the command is paru -G protontricks-git).
+
+Change the following line in PKGBUILD from:
+
+source=('git+https://github.com/Matoking/protontricks.git')
+
+to
+
+source=('git+https://github.com/Matoking/protontricks.git#branch=appinfo_v29')
+
+Build and install the package by running the following commands in the directory with the PKGBUILD file:
+
+makepkg
+sudo pacman -U protontricks-git-*.tar.zst
+
+Install Windows binaries
+protontricks 489830 vcrun2022
+protontricks 489830 dotnetdesktop6
+protontricks 489830 dotnet7
+
+Check for VC install files:
+cd ~/.steam/steam/steamapps/compatdata/489830/pfx/drive_c/windows/syswow64/
+ls | grep vcruntime
+ls | grep msvcp
+
+Run a windows cmd shell:
+protontricks 489830 run cmd
+check if binaries installed:
+dotnet --version
+
+Installing and running Nemesis:
+// I could never get this working on Proton 9, it always crashes 35% into animation generation. Switch the compatibility to Proton 8 and it should work, just remember to switch back to Proton 9 afterwards
+Put Nemesis files in %BASEDIR%/tools/Nemesis
+set up the executable in MO2
+Launch Nemesis, update engine, generate behavior
+if any Nemesis dependent animations are added, you must update engine and regenerate behavior
+If any Nemesis dependent animations are removed, you must DELETE the Nemesis_Behavior directory, launch Nemesis and recheck all required mods, update engine and generate
+MOVE Nemesis behavior directory out of overwrite/ and into mods/Nemesis Behavior/
+
+
+ENB:
+http://enbdev.com/download_mod_tesskyrimse.html
+Extract ONLY d3d9.dll and dxcompiler_46.dll to the STOCK GAME Skyrim Special Edition/ directory
+Pi-Cho ENB for NAT3
+
+Modern Combat Stack (Soulsborne-like):
+Soulsy HUD
+True Directional Movement
+Open Animation Replacer
+Animation Motion Revolution
+Payload Interpreter
+MCO Universal Support
+One click power attack
+ADXP/MCO  v1.6.0.6 https://www.distaranimation.com/mods/attack
+Precision
+Poise Stagger Overhaul
+Stamina Matters
+Movement Behavior Overhaul
+Impactful Blocking
+Dodge MCO/DXP
+Faster Drawing
+Shield of Stamina
+Stop on Slash
+Elden Parry
+Elden Rim
+
+Hardcore mode:
+Survival Mode Improved
+Survival Control Panel
+
+
+Amaranth Waifu Edition
+Bodyslide:
+Set bodyslide output to %BASEDIR%/mods/Bodyslide Output -- NOT overwrite!
+OBody:
+follow the setup guide
+Poser Hotkeys Plus
+Photo Mode
+Free Fly Cam
+Mfg fix
+
